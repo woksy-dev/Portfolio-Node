@@ -14,11 +14,17 @@ var jsonRecommendations = fs.readFileSync(
   path.resolve(__dirname, '../data/recommendations.json'),
   'utf8'
 );
+var jsonPortfolio = fs.readFileSync(
+  path.resolve(__dirname, '../data/portfolio.json'),
+  'utf8'
+);
   var parsedArray = JSON.parse(jsonArray)
   var parsedRecommendations = JSON.parse(jsonRecommendations)
+  var parsedPortfolio = JSON.parse(jsonPortfolio)
   res.render('index',{
     array: parsedArray,
-    recommendations: parsedRecommendations
+    recommendations: parsedRecommendations,
+    portfolio: parsedPortfolio
   });
 });
 
