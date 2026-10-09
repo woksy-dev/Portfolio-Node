@@ -24,8 +24,9 @@ var jsonPortfolio = fs.readFileSync(
   res.render('index',{
     array: parsedArray,
     recommendations: parsedRecommendations,
-    portfolio: parsedPortfolio
-  });
+    portfolio: parsedPortfolio,
+    user: req.user || null
+});
 });
 
 module.exports = router;

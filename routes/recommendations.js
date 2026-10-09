@@ -4,18 +4,21 @@ var express = require('express');
 var fs = require("fs")
 var path = require("path")
 var router = express.Router();
-
-
+var ensureLogIn = require('connect-ensure-login').ensureLoggedIn;
+var ensureLoggedIn = ensureLogIn();
 
 
 router.get('/', function(req, res, next) {
   var jsonArray = fs.readFileSync(
-  path.resolve(__dirname, '../data/recommendations.json'),
-  'utf8'
-);
-  var parsedArray = JSON.parse(jsonArray)
-  res.render('recommendations',{
-    array: parsedArray
+    path.resolve(__dirname, '../data/recommendations.json'),
+    'utf8'
+  );
+
+  var parsedArray = JSON.parse(jsonArray);
+
+  res.render('recommendations', {
+    array: parsedArray,
+    user: req.user || null
   });
 });
 
@@ -58,7 +61,7 @@ let rawData = fs.readFileSync(
   res.end();
 });
 
-router.delete("/", jsonParser, function(req, res, next) {
+router.delete("/", jsonParser, ensureLoggedIn, function(req, res, next) {
   const { name } = req.body;
 
   if (

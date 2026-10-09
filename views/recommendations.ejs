@@ -10,8 +10,12 @@
     <body class="position-relative" data-bs-spy="scroll">
       <%- include('./partials/navbar.ejs') %>
       <div data-spy="scroll" data-target="#navbar" data-offset="0">
-      <%- include('./partials/recommendations.ejs') %>
+      <%- include('./partials/recommendations.ejs', {
+      data: array,
+      user: user
+      }) %>
       </div>
       <%- include('./partials/scripts.ejs') %>
+      <script src="/js/recommendationRequest.js"></script>
     </body>
 </html>
