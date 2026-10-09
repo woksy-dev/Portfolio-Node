@@ -7,11 +7,13 @@
 <link href="../css/portfolio/navbar.css" rel="stylesheet">
 <link href="../css/portfolio/filters.css" rel="stylesheet">
 </head>
+
     <body class="position-relative" data-bs-spy="scroll">
       <%- include('./partials/navbar.ejs') %>
       <div data-spy="scroll" data-target="#navbar" data-offset="0">
       <%- include('./partials/portfolio.ejs', { cakes: cakes }) %>
       </div>
       <%- include('./partials/scripts.ejs') %>
+      <script src="/js/portfolioRequest.js"></script>
     </body>
 </html>

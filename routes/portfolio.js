@@ -5,6 +5,8 @@ var express = require('express');
 var fs = require("fs")
 var path = require("path")
 var router = express.Router();
+var ensureLogIn = require('connect-ensure-login').ensureLoggedIn;
+var ensureLoggedIn = ensureLogIn();
 
 
 var download = function(url, filename, callback) {
@@ -86,7 +88,7 @@ router.post("/", jsonParser, function(req, res, next) {
 });
 
 
-router.delete("/", jsonParser, function(req, res, next) {
+router.delete("/", jsonParser, ensureLoggedIn, function(req, res, next) {
   const { name } = req.body;
 
   // Validation

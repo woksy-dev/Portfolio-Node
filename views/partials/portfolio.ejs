@@ -48,6 +48,12 @@
             <h4><%= cake.header %></h4>
 
             <p><%= cake.description %></p>
+            <button
+  class="btn-danger"
+  onclick="sendDelete('/portfolio', '<%= cake.name %>')"
+>
+  Delete
+</button>
 
           </div>
         </div>
