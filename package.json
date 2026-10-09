@@ -12,9 +12,13 @@
     "debug": "~2.6.9",
     "ejs": "^7.0.1",
     "express": "^4.22.3",
+    "express-session": "^1.19.0",
+    "express-session-json": "^0.0.8",
     "http-errors": "~1.6.3",
     "jquery": "^4.0.0",
     "morgan": "^1.12.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
     "request": "^2.88.2",
     "typed.js": "^2.0.12"
   }
